@@ -19,3 +19,10 @@ Once you've started Apache and MySQL, open your browser and type `localhost` and
 ## Step 3: Put Files in Correct Directory
 To use this application, the files need to be in the proper directory. All websites accessed through `localhost` need to be stored within the /htdocs folder within XAMPP.
 To achieve this, navigate to `C:\Users\USER\xampp\htdocs` then create a folder called weatherwidget (or anything) and put the relevant files in. The structure I used was:
+` * weatherwidget
+    *css
+      *styles.css
+    *js
+      *app.js
+    *index.html
+`
