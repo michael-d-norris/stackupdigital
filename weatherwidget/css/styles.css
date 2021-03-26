@@ -1,0 +1,189 @@
+body {
+	font-family: roboto, sans-serif;
+}
+
+.app {
+	margin: 50px auto;
+}
+
+.container {
+	margin: 0 auto;
+	padding: 0 15px;
+	max-width: 1200px;
+	text-align: center;
+}
+
+.heading {
+	font-weight: bold;
+	font-size: 2.25rem;
+	padding: 0;
+}
+
+.subheading {
+	margin-top: 0;
+	margin-bottom: 25px;
+}
+
+.search-container {
+	display: inline-flex;
+	margin-left: 5px;
+}
+
+.search {
+	display: inline-block;
+	outline: none;
+	width: 250px;
+	padding: 0 10px;
+	text-align: left;
+	background-color: whitesmoke;
+}
+
+.clear-search {
+	opacity: 0;
+	pointer-events: none;
+	width: 25px;
+	height: 25px;
+	display: inline-block;
+	text-align: center;
+	cursor: pointer;
+	border: 1px solid black;
+	border-radius: 50%;
+	font-size: 16px;
+	line-height: 25px;
+	margin: 6px 0 0 5px;
+}
+
+[app-state=forecast]:not(.ajax-in-progress) .clear-search {
+	opacity: 1;
+	pointer-events: auto;
+}
+
+.results {
+	display: block;
+	position: relative;
+	flex-direction: column;
+	transition: opacity 50ms, transform 250ms;
+}
+.results:before, .results:after {
+	position: absolute;
+	top: -15px;
+	font-size: 1.1em;
+}
+.results:after {
+	transition: opacity 250ms;
+	opacity: 0;
+	right: 0;
+}
+.results.some-results:after {
+	content: attr(results-item-count) " cities found";
+}
+.results.one-result:after {
+	content: "1 city found";
+}
+.results.no-results:after {
+	content: "No cities found";
+}
+
+.results-item {
+	padding: 5px 10px;
+	color: white;
+	min-height: 40px;
+	line-height: 30px;
+	background-color: #999999;
+	margin-right: 5px;
+	margin-bottom: 5px;
+	transition: background 150ms, color 150ms;
+	box-sizing: border-box;
+	cursor: pointer;
+	display: inline-block;
+	justify-content: space-between;
+}
+.results-item.focused {
+	background-color: #73d26a;
+}
+.results-item.focused:after {
+	opacity: 1;
+}
+
+.forecast {
+	opacity: 0;
+	transition: opacity 250ms, transform 250ms;
+	display: flex;
+	flex-wrap: wrap;
+	margin: 0 auto;
+}
+.forecast .forecast-item {
+	width: 100px;
+	height: 110px;
+	margin-bottom: 20px;
+	font-size: 0.8rem;
+	text-align: center;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	margin: 0 auto;
+}
+.forecast .forecast-item .forecast-item-date {
+	font-weight: bold;
+	padding: 3px 5px;
+	border-radius: 10px;
+}
+.forecast .forecast-item .forecast-item-temp {
+	margin-top: 10px;
+	font-weight: bold;
+	font-size: 12px;
+	justify-content: space-evenly;
+	width: 100%;
+}
+.forecast .forecast-item .weather-state-icon {
+	width: 64px;
+	margin-top: 10px;
+}
+.forecast .forecast-item .temp-range {
+	display: flex;
+	justify-content: space-between;
+	width: 100%;
+}
+
+.app[app-state=search] .results:after {
+	opacity: 1;
+}
+
+.app[app-state=forecast] .results {
+	max-height: 0;
+	opacity: 0;
+	pointer-events: none;
+}
+.app[app-state=forecast] .forecast {
+	opacity: 1;
+}
+
+@keyframes blink {
+	from {
+		color: rgba(0, 0, 0, 0);
+	}
+	to {
+		color: black;
+	}
+}
+@media screen and (max-width: 599px) {
+	.app {
+		margin: 50px 10px;
+	}
+
+	.header {
+		justify-content: center;
+	}
+
+	.forecast {
+		justify-content: center;
+	}
+}
+
+
+
+
+
+
+
+
