@@ -26,3 +26,5 @@ To achieve this, navigate to `C:\Users\USER\xampp\htdocs` then create a folder c
 >      * app.js
 >    * index.html
 
+## Step 4: Test Application
+That's everything you need to know and do to run my test. Thank you for this opportunity
